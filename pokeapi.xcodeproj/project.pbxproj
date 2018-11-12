@@ -12,6 +12,7 @@
 		1999EFE22199D01B009EC62C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1999EFE02199D01B009EC62C /* Main.storyboard */; };
 		1999EFE42199D01E009EC62C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1999EFE32199D01E009EC62C /* Assets.xcassets */; };
 		1999EFE72199D01E009EC62C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1999EFE52199D01E009EC62C /* LaunchScreen.storyboard */; };
+		480A56D4CAC24F93D25AA8E2 /* Pods_pokeapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77325E60121A559B88FA2B6 /* Pods_pokeapi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		1999EFE32199D01E009EC62C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1999EFE62199D01E009EC62C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1999EFE82199D01E009EC62C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20A31DA9244D1F7B0C18B4E6 /* Pods-pokeapi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokeapi.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokeapi/Pods-pokeapi.release.xcconfig"; sourceTree = "<group>"; };
+		6894ED0BA627AE72A844EE11 /* Pods-pokeapi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokeapi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokeapi/Pods-pokeapi.debug.xcconfig"; sourceTree = "<group>"; };
+		D77325E60121A559B88FA2B6 /* Pods_pokeapi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokeapi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480A56D4CAC24F93D25AA8E2 /* Pods_pokeapi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19662CAACF4C334514199FCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D77325E60121A559B88FA2B6 /* Pods_pokeapi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1999EFD02199D01B009EC62C = {
 			isa = PBXGroup;
 			children = (
 				1999EFDB2199D01B009EC62C /* pokeapi */,
 				1999EFDA2199D01B009EC62C /* Products */,
+				BE4050E659138AB230DC2EB5 /* Pods */,
+				19662CAACF4C334514199FCF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = pokeapi;
 			sourceTree = "<group>";
 		};
+		BE4050E659138AB230DC2EB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6894ED0BA627AE72A844EE11 /* Pods-pokeapi.debug.xcconfig */,
+				20A31DA9244D1F7B0C18B4E6 /* Pods-pokeapi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1999EFEB2199D01E009EC62C /* Build configuration list for PBXNativeTarget "pokeapi" */;
 			buildPhases = (
+				03A088C5163BE44A96C6F51E /* [CP] Check Pods Manifest.lock */,
 				1999EFD52199D01B009EC62C /* Sources */,
 				1999EFD62199D01B009EC62C /* Frameworks */,
 				1999EFD72199D01B009EC62C /* Resources */,
+				175B405310E8817D45C0A9E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03A088C5163BE44A96C6F51E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pokeapi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		175B405310E8817D45C0A9E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-pokeapi/Pods-pokeapi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pokeapi/Pods-pokeapi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1999EFD52199D01B009EC62C /* Sources */ = {
@@ -280,6 +347,7 @@
 		};
 		1999EFEC2199D01E009EC62C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6894ED0BA627AE72A844EE11 /* Pods-pokeapi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +365,7 @@
 		};
 		1999EFED2199D01E009EC62C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20A31DA9244D1F7B0C18B4E6 /* Pods-pokeapi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
