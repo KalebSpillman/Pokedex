@@ -12,14 +12,16 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     
-   
+    @IBOutlet weak var pokemonTextField: UITextField!
+    
     
    
+    @IBOutlet weak var textView: UITextView!
     
     
     
     //Base URl for request
-    let lyricsAPIBaseURL = "/api/v2/ability/{id or name}/"
+    let pokeAPIRequest = "https://api/v2/ability/{id or name}/"
     
     
     override func viewDidLoad() {
@@ -32,29 +34,29 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func searchTapped(_ sender: Any) {
-        //Dismiss keyboard
-        textField.resignFirstResponder()
-        textField2.resignFirstResponder()
+    
+    @IBAction func searchButtonTapped(_ sender: Any) {
+    
+    //Dismiss keyboard
+        pokemonTextField.resignFirstResponder()
         // checking to make sure both fields have values
-        guard let artistName = textField.text,
-            let songTitle = textField2.text else {
+        guard let pokemonName = pokemonTextField.text
+             else {
                 return
         }
         // Clearing out text field
-        textField.text = ""
-        textField2.text = ""
+        pokemonTextField.text = ""
+       
         
-        let artistNameURLComponent = artistName.replacingOccurrences(of: " ", with: "+")
-        let songTitleURLComponent = songTitle.replacingOccurrences(of: " ", with: "+")
-        
-        let requestURL = lyricsAPIBaseURL + artistNameURLComponent + "/" + songTitleURLComponent
+        let pokemonNameURLComponent = pokemonName.replacingOccurrences(of: " ", with: "+")
+       
+        let requestURL = pokeAPIRequest + pokemonNameURLComponent + "/"
         
         Alamofire.request(requestURL).responseJSON { (response) in
             switch  response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.textView.text = json["lyrics"].stringValue
+                self.textView.text = json["pokemon"].stringValue
             case .failure(let error):
                 self.textView.text = "invalid selection enterd or an error occured. Please try again!"
                 print(error.localizedDescription)
