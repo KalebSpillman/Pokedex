@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     
     //Base URl for request
-    let pokeAPIRequest = "https://api/v2/ability/{id or name}/"
+    let pokeAPIRequest = "https://pokeapi.co/api/v2/pokemon/"
     
     
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         pokemonTextField.text = ""
        
         
-        let pokemonNameURLComponent = pokemonName.replacingOccurrences(of: " ", with: "+")
+        let pokemonNameURLComponent = pokemonName.replacingOccurrences(of: " ", with: "")
        
         let requestURL = pokeAPIRequest + pokemonNameURLComponent + "/"
         
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             switch  response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.textView.text = json["pokemon"].stringValue
+                self.textView.text = json.rawString()
             case .failure(let error):
                 self.textView.text = "invalid selection enterd or an error occured. Please try again!"
                 print(error.localizedDescription)
