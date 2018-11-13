@@ -1,0 +1,6 @@
+framework module Pods_pokeapi {
+  umbrella header "Pods-pokeapi-umbrella.h"
+
+  export *
+  module * { export * }
+}

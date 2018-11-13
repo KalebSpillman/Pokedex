@@ -12,12 +12,12 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     
-    @IBOutlet weak var textField: UITextField!
+   
     
-    @IBOutlet weak var textField2: UITextField!
+   
     
     
-    @IBOutlet weak var textView: UITextView!
+    
     //Base URl for request
     let lyricsAPIBaseURL = "/api/v2/ability/{id or name}/"
     
